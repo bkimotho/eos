@@ -738,6 +738,25 @@ flat_set<public_key_type> chain_controller::get_required_keys(const transaction&
    return checker.used_keys();
 }
 
+bool chain_controller::check_authorization( account_name account, permission_name permission,
+                                         flat_set<public_key_type> provided_keys,
+                                         bool allow_unused_signatures)const
+{
+   auto checker = make_auth_checker( [&](const permission_level& p){ return get_permission(p).auth; },
+                                     get_global_properties().configuration.max_authority_depth,
+                                     provided_keys);
+
+   auto satisfied = checker.satisfied({account, permission});
+
+   if (satisfied && !allow_unused_signatures) {
+      EOS_ASSERT(checker.all_keys_used(), tx_irrelevant_sig,
+                 "irrelevant signatures from these keys: ${keys}",
+                 ("keys", checker.unused_keys()));
+   }
+
+   return satisfied;
+}
+
 void chain_controller::check_authorization( const vector<action>& actions,
                                             const flat_set<public_key_type>& provided_keys,
                                             bool allow_unused_signatures,
