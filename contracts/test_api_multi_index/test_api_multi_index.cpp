@@ -9,23 +9,19 @@
 
 extern "C" {
 
-    void init()  {
+   void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
 
-    }
-
-   void apply( unsigned long long code, unsigned long long action ) {
-
-      WASM_TEST_HANDLER(test_multi_index, idx64_general);
-      WASM_TEST_HANDLER(test_multi_index, idx64_store_only);
-      WASM_TEST_HANDLER(test_multi_index, idx64_check_without_storing);
-      WASM_TEST_HANDLER(test_multi_index, idx128_general);
-      WASM_TEST_HANDLER(test_multi_index, idx128_store_only);
-      WASM_TEST_HANDLER(test_multi_index, idx128_check_without_storing);
-      WASM_TEST_HANDLER(test_multi_index, idx128_autoincrement_test);
-      WASM_TEST_HANDLER(test_multi_index, idx128_autoincrement_test_part1);
-      WASM_TEST_HANDLER(test_multi_index, idx128_autoincrement_test_part2);
-      WASM_TEST_HANDLER(test_multi_index, idx256_general);
-      WASM_TEST_HANDLER(test_multi_index, idx_double_general);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx64_general);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx64_store_only);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx64_check_without_storing);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_general);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_store_only);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_check_without_storing);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_autoincrement_test);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_autoincrement_test_part1);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx128_autoincrement_test_part2);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx256_general);
+      WASM_TEST_HANDLER_EX(test_multi_index, idx_double_general);
 
       //unhandled test call
       eosio_assert(false, "Unknown Test");

@@ -92,8 +92,8 @@ namespace testsystem {
 extern "C" {
 
 /// The apply method implements the dispatch of events to this contract
-void apply( uint64_t code, uint64_t act ) {
-   if (code == current_receiver()) {
+void apply( uint64_t receiver, uint64_t code, uint64_t act ) {
+   if (code == receiver) {
       testsystem::dispatcher::dispatch(act);
    }
 }
