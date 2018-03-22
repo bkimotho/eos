@@ -59,7 +59,8 @@ void entry::call(const string &entry_point, const vector <Value> &args, apply_co
 
 void entry::call_apply(apply_context& context)
 {
-   vector<Value> args = {Value(uint64_t(context.act.account)),
+   vector<Value> args = {Value(uint64_t(context.receiver)),
+                         Value(uint64_t(context.act.account)),
                          Value(uint64_t(context.act.name))};
 
    call("apply", args, context);

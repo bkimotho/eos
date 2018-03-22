@@ -17,7 +17,8 @@ void entry::call(const string &entry_point, LiteralList& args, apply_context &co
 
 void entry::call_apply(apply_context& context)
 {
-   LiteralList args = {Literal(uint64_t(context.act.account)),
+   LiteralList args = {Literal(uint64_t(context.receiver)),
+                       Literal(uint64_t(context.act.account)),
                        Literal(uint64_t(context.act.name))};
 
    call("apply", args, context);
