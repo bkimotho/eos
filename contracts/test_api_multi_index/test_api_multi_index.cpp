@@ -8,7 +8,6 @@
 #include "test_multi_index.cpp"
 
 extern "C" {
-
    void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
 
       WASM_TEST_HANDLER_EX(test_multi_index, idx64_general);
@@ -22,6 +21,7 @@ extern "C" {
       WASM_TEST_HANDLER_EX(test_multi_index, idx128_autoincrement_test_part2);
       WASM_TEST_HANDLER_EX(test_multi_index, idx256_general);
       WASM_TEST_HANDLER_EX(test_multi_index, idx_double_general);
+
 
       //unhandled test call
       eosio_assert(false, "Unknown Test");

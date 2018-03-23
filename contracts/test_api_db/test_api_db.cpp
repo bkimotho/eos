@@ -9,11 +9,7 @@
 
 extern "C" {
 
-    void init()  {
-
-    }
-
-   void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
+  void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
 
       WASM_TEST_HANDLER_EX(test_db, primary_i64_general);
       WASM_TEST_HANDLER_EX(test_db, primary_i64_lowerbound);

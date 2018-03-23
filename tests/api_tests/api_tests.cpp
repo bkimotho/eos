@@ -749,7 +749,6 @@ BOOST_FIXTURE_TEST_CASE(db_tests, tester) { try {
 	CALL_TEST_FUNCTION( *this, "test_db", "idx64_upperbound", {});
 
 } FC_LOG_AND_RETHROW() }
-
 /*************************************************************************************
  * multi_index_tests test case
  *************************************************************************************/
